@@ -1,0 +1,8 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="FaceAuth/FaceAuth.vcxproj" Id="2a8c1b3f-29bb-4afb-8542-fe56d6de8d13" />
+  <Project Path="SCardReader/SCardReader.vcxproj" Id="1d1ad28f-1995-44fa-98e9-082020242751" />
+</Solution>
