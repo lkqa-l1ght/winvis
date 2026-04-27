@@ -2,9 +2,9 @@ using PCSC.Iso7816;
 using System;
 using System.Formats.Asn1;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    class PassportChip
+    class PassportChip                  // Thực hiện giao tiếp với đầu đọc CCCD
     {
         private readonly IsoReader _iso;
 

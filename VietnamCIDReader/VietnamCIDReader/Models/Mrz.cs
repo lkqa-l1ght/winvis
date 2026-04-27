@@ -1,30 +1,33 @@
 using System;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    class Mrz
+    class Mrz           // Tạo mã MRZ
     {
-        public string DocNum { get; }
-        public char CkDoc { get; }
-        public string Dob { get; }
-        public char CkDob { get; }
-        public string Expiry { get; }
-        public char CkExp { get; }
+        // Lưu các thành phần của mã
+        public string DocNum { get; }       // Số CCCD      
+        public char CkDoc { get; }          // Check digit cho DocNum
+        public string Dob { get; }          // Ngày sinh 
+        public char CkDob { get; }          // Check digit cho Dob
+        public string Expiry { get; }       // Ngày hết hạn CCCD
+        public char CkExp { get; }          // Check digit cho Expiry
 
-        public string Key => DocNum + CkDoc + Dob + CkDob + Expiry + CkExp;
+        public string Key => DocNum + CkDoc + Dob + CkDob + Expiry + CkExp;         // Tạo mã MRZ từ các thành phần trên
 
-        public Mrz(string raw)
+        public Mrz(string raw)  
         {
             raw = raw.Trim().ToUpper();
             if (raw.Length != 24)
                 throw new Exception($"Cần đúng 24 ký tự, nhận được {raw.Length}.");
 
-            DocNum = raw[..9];
-            CkDoc = raw[9];
-            Dob = raw[10..16];
-            CkDob = raw[16];
-            Expiry = raw[17..23];
-            CkExp = raw[23];
+            DocNum = raw[..9];              // 9 kí tự đầu là 9 số cuối CCCD 
+            CkDoc = raw[9];                 // Check digit cho DocNum
+            Dob = raw[10..16];              // 6 kí tự ngày sinh (dạng YYMMDD)
+            CkDob = raw[16];                // Check digit cho ngày sinh
+            Expiry = raw[17..23];           // 6 kí tự ngày hết hạn CCCD (dạng YYMMDD)
+            CkExp = raw[23];                // Check digit cho ngày hết hạn
+
+            // Kiểm tra tính hợp lệ của các thành phần trong mã
 
             if (!Util.ValidCK(DocNum, CkDoc))
                 throw new Exception($"Check digit số tài liệu sai (kỳ vọng {Util.CheckDigit(DocNum)}, nhận '{CkDoc}').");

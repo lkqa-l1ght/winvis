@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    class DgReader
+    class DgReader              // Đọc thông tin từ các file dữ liệu của CCCD (DG1, DG2, DG13)
     {
         private readonly SecureMessaging _sm;
         public DgReader(SecureMessaging sm) => _sm = sm;

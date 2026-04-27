@@ -2,9 +2,9 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    static class TlvParser
+    static class TlvParser              // Phân tách thông tin cho dữ liệu đọc được từ DG13
     {
         private static readonly string[] Dg13Labels = new string[]
         {
@@ -27,7 +27,7 @@ namespace MrzProtocol
 
         private static int _textIndex = 0;
 
-        public static void ExtractDG13(byte[] data)
+        public static void ExtractDG13(byte[] data)             // Hàm in dữ liệu
         {
             _textIndex = 0;
             Console.WriteLine("\n  ╔══════════════════ THÔNG TIN TỪ DG13 ══════════════════╗");

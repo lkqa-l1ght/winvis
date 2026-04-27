@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    static class ImageExtractor
+    static class ImageExtractor             // Lấy thông tin ảnh từ DG2
     {
         public static byte[] ExtractImageBytesFromDG2(byte[] dg2Raw)
         {

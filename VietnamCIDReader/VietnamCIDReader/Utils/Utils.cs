@@ -3,13 +3,13 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    static class Util
+    static class Util               // Chứa các hàm công cụ
     {
         static readonly int[] W = { 7, 3, 1 };
 
-        static int CharVal(char c)
+        static int CharVal(char c)              // Chuyển đổi ký tự string sang số
         {
             if (c >= '0' && c <= '9') return c - '0';
             if (c >= 'A' && c <= 'Z') return c - 'A' + 10;
@@ -17,7 +17,7 @@ namespace MrzProtocol
             throw new Exception($"Ký tự MRZ không hợp lệ: '{c}'");
         }
 
-        public static int CheckDigit(string s)
+        public static int CheckDigit(string s)          // Tính Check digit
         {
             int sum = 0;
             for (int i = 0; i < s.Length; i++)
@@ -25,7 +25,7 @@ namespace MrzProtocol
             return sum % 10;
         }
 
-        public static bool ValidCK(string field, char ck) =>
+        public static bool ValidCK(string field, char ck) =>            // Kiểm tra tính hợp lệ
             CheckDigit(field) == (ck - '0');
 
         public static string Hex(byte[] b) => BitConverter.ToString(b).Replace("-", "");

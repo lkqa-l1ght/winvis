@@ -4,9 +4,9 @@ using System.Formats.Asn1;
 using System.Linq;
 using System.Security.Cryptography;
 
-namespace MrzProtocol
+namespace CIDReader
 {
-    class Bac
+    class Bac               // Thực hiện giao thức hai chiều theo chuẩn BAC
     {
         private readonly Mrz _mrz;
         private readonly IsoReader _iso;

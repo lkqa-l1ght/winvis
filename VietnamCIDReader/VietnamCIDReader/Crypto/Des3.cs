@@ -1,11 +1,11 @@
 using System;
 using System.Security.Cryptography;
 
-namespace MrzProtocol
+namespace CIDReader
 {
     static class Des3
     {
-        public static byte[] Mac(byte[] kmac, byte[] data)
+        public static byte[] Mac(byte[] kmac, byte[] data)                  // Hàm tính toán mã xác thực MAC
         {
             int pad = 8 - data.Length % 8;
             byte[] buf = new byte[data.Length + pad];
@@ -22,7 +22,7 @@ namespace MrzProtocol
             return DesEcb(ka, DesEcbDec(kb, cv));
         }
 
-        static byte[] DesEcb(byte[] key, byte[] block)
+        static byte[] DesEcb(byte[] key, byte[] block)                 // Hàm tiện ích hỗ trợ tính toán
         {
             using var d = DES.Create();
             d.Key = key; d.IV = new byte[8];
@@ -30,7 +30,7 @@ namespace MrzProtocol
             return d.CreateEncryptor().TransformFinalBlock(block, 0, 8);
         }
 
-        static byte[] DesEcbDec(byte[] key, byte[] block)
+        static byte[] DesEcbDec(byte[] key, byte[] block)              // Hàm tiện ích hỗ trợ tính toán
         {
             using var d = DES.Create();
             d.Key = key; d.IV = new byte[8];
@@ -38,7 +38,18 @@ namespace MrzProtocol
             return d.CreateDecryptor().TransformFinalBlock(block, 0, 8);
         }
 
-        public static byte[] Decrypt(byte[] kenc, byte[] iv, byte[] data)
+        public static byte[] EncryptNoPadding(byte[] kenc, byte[] iv, byte[] data)      // Mã hóa dữ liệu các lệnh ADPU
+        {
+            using var t = TripleDES.Create();
+            t.Key = Util.Cat(kenc, Util.Sub(kenc, 0, 8));
+            t.IV = iv;
+            t.Mode = CipherMode.CBC;
+            t.Padding = PaddingMode.None;
+
+            return t.CreateEncryptor().TransformFinalBlock(data, 0, data.Length);
+        }
+
+        public static byte[] Decrypt(byte[] kenc, byte[] iv, byte[] data)               // Giải mã
         {
             using var t = TripleDES.Create();
             t.Key = Util.Cat(kenc, Util.Sub(kenc, 0, 8));
@@ -49,15 +60,5 @@ namespace MrzProtocol
             return t.CreateDecryptor().TransformFinalBlock(data, 0, data.Length);
         }
 
-        public static byte[] EncryptNoPadding(byte[] kenc, byte[] iv, byte[] data)
-        {
-            using var t = TripleDES.Create();
-            t.Key = Util.Cat(kenc, Util.Sub(kenc, 0, 8));
-            t.IV = iv;
-            t.Mode = CipherMode.CBC;
-            t.Padding = PaddingMode.None;
-
-            return t.CreateEncryptor().TransformFinalBlock(data, 0, data.Length);
-        }
     }
 }
