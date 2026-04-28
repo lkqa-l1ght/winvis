@@ -6,8 +6,6 @@ using CIDReader.Utils;
 using CIDReader.SmartCard;
 using CIDReader.Parsers;
 
-
-
 namespace CIDReader
 {
     class Program
