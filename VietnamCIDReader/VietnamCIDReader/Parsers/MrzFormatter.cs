@@ -1,7 +1,7 @@
-using System;
 using System.Text;
+using CIDReader.Utils;
 
-namespace CIDReader
+namespace CIDReader.Parsers
 {
     class MrzFormatter
     {

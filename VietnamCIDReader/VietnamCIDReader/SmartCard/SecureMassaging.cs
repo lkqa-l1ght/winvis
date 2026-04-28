@@ -1,10 +1,7 @@
 using PCSC.Iso7816;
-using System;
-using System.Collections.Generic;
-using System.Formats.Asn1;
-using System.Linq;
+using CIDReader.Utils;
 
-namespace CIDReader
+namespace CIDReader.SmartCard
 {
     class SecureMessaging
     {

@@ -1,7 +1,4 @@
-using System;
-using System.Linq;
-
-namespace CIDReader
+namespace CIDReader.Parsers
 {
     static class ImageExtractor             // Lấy thông tin ảnh từ DG2
     {

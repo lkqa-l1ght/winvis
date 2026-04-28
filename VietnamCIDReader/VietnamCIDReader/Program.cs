@@ -1,8 +1,12 @@
 ﻿using PCSC;
 using PCSC.Iso7816;
-using System;
-using System.IO;
 using System.Text;
+using CIDReader.Models;
+using CIDReader.Utils;
+using CIDReader.SmartCard;
+using CIDReader.Parsers;
+
+
 
 namespace CIDReader
 {

@@ -1,8 +1,6 @@
-using System;
-using System.Linq;
 using System.Text;
 
-namespace CIDReader
+namespace CIDReader.Parsers
 {
     static class TlvParser              // Phân tách thông tin cho dữ liệu đọc được từ DG13
     {

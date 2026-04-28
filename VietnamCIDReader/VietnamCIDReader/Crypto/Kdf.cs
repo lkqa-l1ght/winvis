@@ -1,7 +1,8 @@
 using System.Security.Cryptography;
 using System.Text;
+using CIDReader.Utils;
 
-namespace CIDReader
+namespace CIDReader.Crypto
 {
     static class Kdf            // Sinh ra các mã khóa cho chuỗi MRZ theo chuẩn BAC
     {

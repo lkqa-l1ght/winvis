@@ -1,8 +1,6 @@
 using PCSC.Iso7816;
-using System;
-using System.Formats.Asn1;
 
-namespace CIDReader
+namespace CIDReader.SmartCard
 {
     class PassportChip                  // Thực hiện giao tiếp với đầu đọc CCCD
     {

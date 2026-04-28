@@ -1,6 +1,6 @@
-using System;
+using CIDReader.Utils;
 
-namespace CIDReader
+namespace CIDReader.Models
 {
     class Mrz           // Tạo mã MRZ
     {

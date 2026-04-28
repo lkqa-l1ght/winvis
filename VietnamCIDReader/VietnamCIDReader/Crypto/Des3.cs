@@ -1,7 +1,7 @@
-using System;
 using System.Security.Cryptography;
+using CIDReader.Utils;
 
-namespace CIDReader
+namespace CIDReader.Crypto
 {
     static class Des3
     {

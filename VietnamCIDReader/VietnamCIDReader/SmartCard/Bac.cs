@@ -1,10 +1,9 @@
 using PCSC.Iso7816;
-using System;
-using System.Formats.Asn1;
-using System.Linq;
-using System.Security.Cryptography;
+using CIDReader.Crypto;
+using CIDReader.Utils;
+using CIDReader.Models;
 
-namespace CIDReader
+namespace CIDReader.SmartCard
 {
     class Bac               // Thực hiện giao thức hai chiều theo chuẩn BAC
     {

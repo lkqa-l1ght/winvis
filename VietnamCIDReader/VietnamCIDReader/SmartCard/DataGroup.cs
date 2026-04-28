@@ -1,4 +1,5 @@
-﻿namespace CIDReader {
+﻿namespace CIDReader.SmartCard
+{
     public static class DataGroup               // Định nghĩa các file dữ liệu trong CCCD
     {
         public static readonly byte[] DG1 = { 0x01, 0x01 };         // Đọc dữ liệu cho DG1

@@ -1,9 +1,7 @@
-using System;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace CIDReader
+namespace CIDReader.Utils
 {
     static class Util               // Chứa các hàm công cụ
     {

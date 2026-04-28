@@ -1,6 +1,4 @@
-using System;
-
-namespace CIDReader
+namespace CIDReader.Utils
 {
     static class Con
     {

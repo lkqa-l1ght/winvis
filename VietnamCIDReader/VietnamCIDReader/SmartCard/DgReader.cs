@@ -1,7 +1,4 @@
-using System;
-using System.Collections.Generic;
-
-namespace CIDReader
+namespace CIDReader.SmartCard
 {
     class DgReader              // Đọc thông tin từ các file dữ liệu của CCCD (DG1, DG2, DG13)
     {
